@@ -111,9 +111,9 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
             Console.WriteLine("Hen gap lai lan sau!");
         }
 
-        public static void Main()
-        {
-            game_engine();
-        }
+        //public static void Main()
+        //{
+        //    game_engine();
+        //}
     }
 }
