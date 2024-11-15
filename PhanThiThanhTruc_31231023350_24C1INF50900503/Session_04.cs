@@ -8,73 +8,297 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
 {
     internal class Session_04
     {
-        //static void Main (string[] args)
+        //static void Main(string[] args)
         //{
-        //    //Bai 1
-        //    int m = maxOfThreeNumber(2, 3, 4);
-        //    Console.WriteLine(m);
-        //    Factorial(6);//Bai 2
-        //    IsPrime(3);//Bai 3
-        //    printPrimeNumberUnderN(10);//Bai 4.1
-        //    printFirstNprime(10);//Bai4.2
-        //    printAllPerfectNumberLessThan(1000); //Bai 5
-        //    isPangram("The quick brown fox jumps over the lazy dog"); //Bai 6
-        //    Console.ReadKey();
+        //Bai4_Ex01_P1();
+        //Bai4_Ex02_P1();
+        //Bai4_Ex03_P1();
+        //Bai4_Ex01_P2();
+        //Bai4_Ex02_P2();
+        //Bai4_Ex03_P2();
+        //Bai4_Ex06_P2();
+        //Bai4_Ex07_P2();
+        //Bai4_Ex08_P2();
+        //Bai4_Ex04_01_P2();
+        //Bai4_Ex04_02_P2();
+        //Bai4_Ex04_03_P2();
         //}
         /// <summary>
-        /// <summary>
-        /// 1. Write a C# function to find the maximum of three numbers.
+        /// Control flow statements exercises <br/>
+        /// 1. Write a C# Sharp program to check whether a given number is even or odd.
         /// </summary>
-        /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
-        /// <param name="c"></param>
-        /// <returns></returns>
-        public static int maxOfThreeNumber(int a, int b, int c)
+        /// 
+        static void Bai4_Ex01_P1()
         {
-            //return Math.Max(Math.Max(a, b), c); //Cach khac
-            int max = 0;
-            if (a > b && a > c)
+            Console.Write("Nhap vao so nguyen: ");
+            int a = int.Parse(Console.ReadLine());
+
+            if (a % 2 == 0)
             {
-                max = a;
-            }
-            else if (b > a && b > c)
-            {
-                max = b;
+                Console.WriteLine($"So {a} la so chan");
             }
             else
             {
-                max = c;
+                Console.WriteLine($"So {a} la so le");
             }
-            return max;
         }
         /// <summary>
-        /// 2. Write a C# function to calculate the factorial of a number (a non-negative integer). The function accepts the number as an argument.
+        /// 2. Write a C# Sharp program to find the largest of three numbers.
         /// </summary>
-        /// <param name="n"></param>
-        /// <param name="result"></param>
-        /// <returns></returns>
-        static void Factorial(int n)
+        public static void Bai4_Ex02_P1()
         {
-            int result = 1;
-            if (n < 0)
+            Console.WriteLine("Vui long nhap vao ba so: ");
+            Console.Write("Nhap vao so thu nhat: ");
+            int a = int.Parse(Console.ReadLine());
+            Console.Write("Nhap vao so thu hai: ");
+            int b = int.Parse(Console.ReadLine());
+            Console.Write("Nhap vao so thu ba: ");
+            int c = int.Parse(Console.ReadLine());
+            int max = a;
+
+            if (b > max)
             {
-                Console.WriteLine("So phai la mot so nguyen khong am.");
-                result = 0;
+                if (c > max)
+                {
+                    max = c;
+                }
+                else
+                {
+                    max = b;
+                }
             }
+            Console.WriteLine($"So lon nhat trong ba so la {max}");
+        }
+        /// <summary>
+        /// 3. Write a C# Sharp program to accept a coordinate point in an XY coordinate system and determine in which quadrant the coordinate point lies.
+        /// </summary>
+        public static void Bai4_Ex03_P1()
+        {
+            Console.WriteLine("Vui long nhap toa do diem: ");
+            Console.Write("Nhap toa do X: "); int x = int.Parse(Console.ReadLine());
+            Console.Write("Nhap toa do Y: "); int y = int.Parse(Console.ReadLine());
+
+            if (x > 0 && y > 0)
+            {
+                Console.WriteLine("Toa do da cho thuoc phan tu thu nhat");
+            }
+            else if (x < 0 && y > 0)
+            {
+                Console.WriteLine("Toa do da cho thuoc phan tu thu hai");
+            }
+            else if (x < 0 && y < 0)
+            {
+                Console.WriteLine("Toa do da cho thuoc phan tu thu ba");
+            }
+            else if (x > 0 && y < 0)
+            {
+                Console.WriteLine("Toa do da cho thuoc phan tu thu tu");
+            }
+            else if (x == 0 && y == 0)
+            {
+                Console.WriteLine("Toa do da cho nam tai goc toa do");
+            }
+        }
+        /// <summary>
+        /// 1. Write a program to check whether a triangle is Equilateral, Isosceles or Scalene.
+        /// </summary>
+        public static void Bai4_Ex01_P2()
+        {
+            do
+            {
+                Console.WriteLine("Vui long nhap ba canh tam giac: ");
+                Console.Write("Nhap canh a: ");
+                int a = int.Parse(Console.ReadLine());
+                Console.Write("Nhap canh b: ");
+                int b = int.Parse(Console.ReadLine());
+                Console.Write("Nhap canh c: ");
+                int c = int.Parse(Console.ReadLine());
+
+                if (a + b > c && b + c > a && a + c > b)
+                {
+                    if (a == b || b == c || c == a)
+                    {
+                        if (a == b && b == c)
+                        {
+                            Console.WriteLine(" Tam giac do la tam giac deu");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Tam giac do la tam giac can");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Tam giac do la tam giac khong can");
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Ba canh nay khong phai tam giac, vui long nhap lai.");
+                }
+                Console.WriteLine("Ban co muon tiep tuc nhap <y/n>?");
+                string tiepTuc = Console.ReadLine();
+                if (tiepTuc.ToLower() != "y")
+                {
+                    break;
+                }
+
+            } while (true);
+        }
+        /// <summary>
+        /// 2. Write a program to read 10 numbers and find their average and sum.
+        /// </summary>
+        public static void Bai4_Ex02_P2()
+        {
+            double tong = 0;
+            for (int i = 0; i < 10; i++)
+            {
+                Console.Write($"Nhap so thu {i + 1}: ");
+                double number = Convert.ToDouble(Console.ReadLine());
+                tong += number;
+            }
+            double tb = tong / 10;
+            Console.WriteLine($"Tong cua 10 so: {tong}");
+            Console.WriteLine($"Trung binh cua 10 so: {tb}");
+        }
+        /// <summary>
+        /// 3. Write a program to display the multiplication table of a given integer.
+        /// </summary>
+        public static void Bai4_Ex03_P2()
+        {
+            Console.WriteLine("Vui long nhap so nguyen cho truoc: ");
+            int song = int.Parse(Console.ReadLine());
+            Console.WriteLine($"BANG CUU CHUONG CUA {song}");
+            int ketqua = 0;
+            for (int i = 1; i < 11; i++)
+            {
+                ketqua = song * i;
+                Console.WriteLine($"{song}*{i}={ketqua}");
+            }
+        }
+        /// <summary>
+        /// 4. Write a program to display a pattern like triangles with number.
+        /// </summary>
+        public static void Bai4_Ex04_01_P2()
+        //Pattern 1
+        {
+            Console.Write("Nhap so dong ket thuc cua day: ");
+            int n = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= n; i++) // lap theo chieu doc
+            {
+                for (int j = 1; j <= i; j++) // lap theo chieu ngang
+                {
+                    Console.Write(j); // In cac so tu 1 den i
+                }
+                Console.WriteLine(); // Xuong dong sau moi hang
+            }
+        }
+        public static void Bai4_Ex04_02_P2()
+        //Pattern 2
+        {
+            int n = 1;
+            Console.Write("Nhap so dong cua mau: ");
+            int rows = int.Parse(Console.ReadLine());
+
+            for (int i = 1; i <= rows; i++)
+            {
+                for (int j = 1; j <= i; j++)
+                {
+                    Console.Write($"{n} ");
+                    n++; // Tang gia tri n sau moi lan in
+                }
+                Console.WriteLine();
+            }
+        }
+        public static void Bai4_Ex04_03_P2()
+        //Pattern 3
+        {
+            int n = 1;
+            int rows = 4;
+
+            for (int i = 1; i <= rows; i++) // Vòng lặp chiều dọc từ 1 đến rows
+            {
+                for (int s = 1; s <= rows - i; s++) // Vòng lặp in khoảng trắng
+                {
+                    Console.Write(" "); // In khoảng trắng để căn giữa
+                }
+                for (int j = 1; j <= i; j++) // Vòng lặp in các số
+                {
+                    Console.Write($"{n} "); // In giá trị của n kèm khoảng trắng
+                    n++; // Tăng giá trị của n cho lần in tiếp theo
+                }
+                Console.WriteLine(); // Xuống dòng sau khi in xong một hàng
+            }
+        }
+        /// <summary>
+        /// 6. Write a program to display the n terms of harmonic series and their sum. 1 + 1/2 + 1/3 + 1/4 + 1/5 ... 1/n terms
+        /// </summary>
+        public static void Bai4_Ex06_P2()
+        {
+            int n;
+            double Tong = 0;
+
+            do
+            {
+                Console.Write("Nhap so luong so hang n: ");
+                n = int.Parse(Console.ReadLine());
+                if (n <= 0)
+                {
+                    Console.WriteLine("Gia tri khong hop le. Vui long nhap lai");
+                }
+            } while (n <= 0);
             for (int i = 1; i <= n; i++)
             {
-                result *= i;
+                Tong += 1.0 / i;
             }
-            Console.WriteLine($"Giai thua cua {n} la: {result} ");
+            Console.WriteLine($"Tong cua {n} so hang dieu hoa la: {Tong}");
         }
         /// <summary>
-        /// 3. Write a C# function that takes a number as a parameter and checks whether the number is prime or not.
+        /// 7. Write a program to find the ‘perfect’ numbers within a given number range.
         /// </summary>
-        /// <param name="number"></param>
-        static void IsPrime(int number)
+        public static void Bai4_Ex07_P2()
         {
-            if (number < 2)
+            int gioihanduoi;
+            int gioihantren;
+
+            Console.Write("Nhap gioi han duoi: ");
+            gioihanduoi = int.Parse(Console.ReadLine());
+
+            Console.Write("Nhap gioi han tren: ");
+            gioihantren = int.Parse(Console.ReadLine());
+
+            Console.WriteLine($"Cac so hoan hao trong khoang tu {gioihanduoi} đen {gioihantren} la:");
+            for (int number = gioihanduoi; number <= gioihantren; number++)
+            {
+                int Tong = 0;
+                for (int i = 1; i <= number / 2; i++)
+                {
+                    if (number % i == 0)
+                    {
+                        Tong += i;
+                    }
+                }
+                if (Tong == number)
+                {
+                    Console.WriteLine(number);
+                }
+            }
+        }
+        /// <summary>
+        /// 8. Write a program to determine whether a given number is prime or not.
+        /// </summary>
+        public static void Bai4_Ex08_P2()
+        {
+            int number;
+
+            do
+            {
+                Console.Write("Nhap vao so nguyen: ");
+                number = int.Parse(Console.ReadLine());
+            }
+            while (number <= 0);
+            if (number <= 1)
             {
                 Console.WriteLine($"{number} khong phai la so nguyen to");
             }
@@ -85,103 +309,11 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
                     if (number % i == 0)
                     {
                         Console.WriteLine($"{number} khong phai so nguyen to");
+                        return;
                     }
                 }
                 Console.WriteLine($"{number} la so nguyen to");
             }
-        }
-
-        /// <summary>
-        /// 4. Write a C# function to print 
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        static bool isPrime(int number)
-        {
-            if (number < 2) return false;
-            for (int i = 2; i < number / 2; i++)
-            {
-                if (number % i == 0) return false;
-            }
-            return true;
-        }
-        /// <summary>
-        /// 1. all prime numbers that less than a number(enter prompt keyboard).
-        /// </summary>
-        /// <param name="n"></param>
-        static void printPrimeNumberUnderN(int n)
-        {
-            for (int i = 2; i <= n; i++)
-                if (isPrime(i))
-                    Console.Write(i + " ");
-        }
-        /// <summary>
-        /// 2. the first N prime numbers
-        /// </summary>
-        /// <param name="n"></param>
-        static void printFirstNprime(int n)
-        {
-            int so = 2;
-            int dem = 0;
-            while (dem < n)
-            {
-                if (isPrime(so))
-                {
-                    Console.Write(so + " ");
-                    dem++;
-                }
-                so++;
-            }
-        }
-        /// <summary>
-        /// 5. Write a C# function to check whether a number is "Prefect" or not.
-        /// </summary>
-        /// <param name="number"></param>
-        /// <returns></returns>
-        static bool isPerfect(int number)
-        {
-            if (number < 2) return false;
-            int sumOfDivisors = 0;
-            for (int i = 1; i <= number / 2; i++)
-            {
-                if (number % i == 0)
-                {
-                    sumOfDivisors += i;
-                }
-            }
-            return sumOfDivisors == number;
-        }
-        /// <summary>
-        /// Then print all perfect number that less than 1000
-        /// </summary>
-        /// <param name="n"></param>
-        static void printAllPerfectNumberLessThan(int limit)
-        {
-            Console.WriteLine("Cac so hoan hao nho hon 1000: ");
-            for (int i = 1; i < limit; i++)
-            {
-                if (isPerfect(i))
-                {
-                    Console.Write(i + " ");
-                }
-            }
-        }
-        /// <summary>
-        /// 6. Write a C# function to check whether a string is a pangram or not.
-        /// </summary>
-        /// <param name="intput"></param>
-        static void isPangram(string input)
-        {
-            input = input.ToLower();//Doi ve chu thuong
-
-            for (char c = 'a'; c <= 'z'; c++)
-            {
-                if (!input.Contains(c))
-                {
-                    Console.WriteLine($"Chuoi '{input}' khong phai la mot pangram.");
-                }
-            }
-            Console.WriteLine($"Chuoi '{input}' la mot pangranm.");
         }
     }
 }

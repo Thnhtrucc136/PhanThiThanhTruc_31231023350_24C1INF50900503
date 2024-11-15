@@ -8,154 +8,143 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
 {
     internal class Session_02
     {
-        //static void Main(string[] args)
+        //static void Main (string[] args)
         //{
-        //    //Excercises unit 3 Data types
-        //    //Bai3_Ex01();
-        //    //Bai3_Ex02();
-        //    //Bai3_Ex03();
-        //    //Excercises unit 4 Operators and control flow
-        //    //Bai4_Ex01();
-        //    //Bai4_Ex02();
-        //    //Bai4_Ex03();
-        //    //Bai4_Ex04();
-        //    //Bai4_Ex05();
+        //    //Bai2_Ex01();
+        //    //Bai2_Ex02();
+        //    //Bai2_Ex03();
+        //    //Bai2_Ex04();
+        //    //Bai2_Ex05();
+        //    //Bai2_Ex06();
+        //    //Bai2_Ex07();
+        //    //Bai2_Ex08();
+        //    //Bai2_Ex09();
+        //    //Bai2_Ex10();
         //}
         /// <summary>
-        /// Data Types excercises <br/>
-        /// 1. Create a C# program to convert from degrees Celsius to Kelvin and Fahrenheit.
+        /// C# Structure Programming Language Fundamentals exercises <br/>
+        /// 1. Write programs to Add / Sum Two Numbers.
         /// </summary>
-        public static void Bai3_Ex01()
+        public static void Bai2_Ex01()
         {
-            Console.Write("Please enter Celsius degrees: ");
-            int Cel = int.Parse(Console.ReadLine());
-            int Kel = Cel + 273;
-            int Fah = Cel * 18 / 10 + 32;
-            Console.WriteLine($"Celsius to Kalvin: {Kel}");
-            Console.WriteLine($"Celsius to Fahrenheit: {Fah}");
-        }
-        /// <summary>
-        /// 2. Create a program in C# for calculate the surface and volume of a sphere, given its radius.
-        /// </summary>
-        public static void Bai3_Ex02()
-        {
-            Console.Write("Please enter radius: ");
-            double r = float.Parse(Console.ReadLine());
-            double surface = 4 * Math.PI * Math.Pow(r, 2);
-            double volume = 4 / 3 * Math.PI * Math.Pow(r, 3);
-            Console.WriteLine($"Surface: {surface}");
-            Console.WriteLine($"Volume: {volume}");
-        }
-        /// <summary>
-        /// 3. Write a program in C# that calculates the result of adding, subtracting, multiplying and dividing two numbers entered by the user.
-        /// </summary>
-        public static void Bai3_Ex03()
-        {
-            Console.Write("Nhap vao so dau tien: ");
+            Console.Write("Nhap so a: ");
             int a = int.Parse(Console.ReadLine());
-            Console.Write("Nhap vao so thu hai: ");
+            Console.Write("Nhap so b: ");
             int b = int.Parse(Console.ReadLine());
-            int cong = a + b;
-            int tru = a - b;
-            int nhan = a * b;
-            int chiang = a / b;
-            double chiadu = a % b;
-            Console.WriteLine("Ket qua phep tinh: ");
-            Console.WriteLine($"{a} + {b} = {cong}");
-            Console.WriteLine($"{a} - {b} = {tru}");
-            Console.WriteLine($"{a} * {b} = {nhan}");
-            Console.WriteLine($"{a} / {b} = {chiang}");
-            Console.WriteLine($"{a} mod {b} = {chiadu}");
+            int c = a + b;
+            Console.WriteLine($"{a}+{b}={c}");
         }
         /// <summary>
-        /// Operators exercises <br/>
-        /// 1. Write a C# Sharp program that takes two numbers as input and performs an operation(+,-,*, x,/) on them and displays the result of that operation.
+        /// 2. Write programs to Swap Values of Two Variables.
         /// </summary>
-        public static void Bai4_Ex01()
+        public static void Bai2_Ex02()
         {
-            Console.Write("Nhap vao so dau tien: ");
+            Console.Write("Nhap bien a: ");
             int a = int.Parse(Console.ReadLine());
-            Console.Write("Nhap vao so thu hai: ");
+            Console.Write("Nhap bien b: ");
             int b = int.Parse(Console.ReadLine());
-            int cong = a + b;
-            int tru = a - b;
-            int nhan = a * b;
-            int chia = a / b;
-            Console.WriteLine("Ket qua phep tinh hai so: ");
-            Console.WriteLine($"{a} + {b} = {cong}");
-            Console.WriteLine($"{a} - {b} = {tru}");
-            Console.WriteLine($"{a} * {b} = {nhan}");
-            Console.WriteLine($"{a} / {b} = {chia}");
+            int hoanvi = a;
+            a = b;
+            b = hoanvi;
+            Console.WriteLine($"Gia tri cua bien a:{a}");
+            Console.WriteLine($"Gia tri cua bien b:{b}");
         }
         /// <summary>
-        /// 2. Write a C# Sharp program to display certain values of the function x = y2+ 2y + 1 (using integer numbers for y, ranging from -5 to +5).
+        /// 3. Write programs to Multiply two Floating Point Numbers
         /// </summary>
-        public static void Bai4_Ex02()
+        public static void Bai2_Ex03()
         {
-            Console.Write("Nhap gia tri y: ");
-            int y = int.Parse(Console.ReadLine());
+            Console.Write("Nhap so thu nhat: ");
+            float a = float.Parse(Console.ReadLine());
+            Console.Write("Nhap so thu hai: ");
+            float b = float.Parse(Console.ReadLine());
+            float ketqua = a * b;
+            Console.WriteLine($"Ket qua nhan hai so: {ketqua}");
+        }
+        /// <summary>
+        /// 4. Write programs to convert feet to meter.
+        /// </summary>
+        public static void Bai2_Ex04()
+        {
+            Console.Write("Nhap gia tri feet: ");
+            double feet = double.Parse(Console.ReadLine());
+            double meter = feet * 0.3048;
+            Console.WriteLine($"Gia tri meter nhan duoc: {meter} m");
+        }
+        /// <summary>
+        /// 5. Write programs to convert Celsius to Fahrenheit and vice versa.
+        /// </summary>
+        public static void Bai2_Ex05()
+        {
+            Console.Write("Nhap nhiet do theo do C: ");
+            double C = double.Parse(Console.ReadLine());
+            double F = (C * 9 / 5) + 32;
+            Console.WriteLine($"Nhiet do theo do F: {F}");
 
-            if (y <= 5 && y >= -5)
-            {
-                int x = y * y + 2 * y + 1;
-                Console.WriteLine($"Voi y = {y}, thi x = {x}");
-            }
-            else
-            {
-                Console.WriteLine("Vui long nhap lai gia tri y");
-            }
+            Console.Write("Nhap nhiet do theo do F: ");
+            double f = double.Parse(Console.ReadLine());
+            double c = (f - 32) * 5 / 9;
+            Console.WriteLine($"Nhiet do theo do C: {c}");
         }
         /// <summary>
-        /// 3. Write a C# Sharp program that takes distance and time (hours, minutes, seconds) as input and displays speed in kilometers per hour(km/h) and miles per hour(miles/h).
+        /// 6. Write programs to find the Size of data types.
         /// </summary>
-        public static void Bai4_Ex03()
+        public static void Bai2_Ex06()
         {
-            Console.Write("Nhap vao khoang cach (km): ");
-            double kc = double.Parse(Console.ReadLine());//km
-            Console.WriteLine("Nhap vao thoi gian: ");
-            Console.Write("Nhap so gio: ");
-            float gio = float.Parse(Console.ReadLine());
-            Console.Write("Nhap so phut: ");
-            float phut = float.Parse(Console.ReadLine());
-            Console.Write("Nhap so giay: ");
-            float giay = float.Parse(Console.ReadLine());
-            double time = gio + (phut / 60.0) + (giay / 3600.0);
-            double Tocdo = kc / time;
-            Console.WriteLine($"Toc do theo km/h: {Tocdo} km/h");
-            Console.WriteLine($"Toc do theo miles/h: {Tocdo * 0.621371} miles/h");
+            Console.WriteLine("Kich thuc cua int: " + sizeof(int) + " bytes");
+            Console.WriteLine("Kich thuc cua float: " + sizeof(float) + " bytes");
+            Console.WriteLine("Kich thuc cua double: " + sizeof(double) + " bytes");
+            Console.WriteLine("Kich thuc cua char: " + sizeof(char) + " bytes");
+            Console.WriteLine("Kich thuc cua bool: " + sizeof(bool) + " bytes");
+            Console.WriteLine("Kich thuc cua long: " + sizeof(long) + " bytes");
+            Console.WriteLine("Kich thuc cua short: " + sizeof(short) + " bytes");
+            Console.WriteLine("Kich thuc cua byte: " + sizeof(byte) + " bytes");
         }
         /// <summary>
-        /// 4. Write a C# Sharp program that takes the radius of a sphere as input and calculates and displays the surface and volume of the sphere.V = 4/3*π* r
+        /// 7. Write programs to Print ASCII Value (tip: read character, print number of this char)
         /// </summary>
-        public static void Bai4_Ex04()
+        public static void Bai2_Ex07()
         {
-            Console.Write("Nhap ban kinh hinh cau: ");
-            double r = float.Parse(Console.ReadLine());
-            double Dt = 4 * Math.PI * Math.Pow(r, 2);
-            double Tt = 4 / 3 * Math.PI * Math.Pow(r, 3);
-            Console.WriteLine($"Dien tich be mat cua hinh cau ban kinh {r}: {Dt}");
-            Console.WriteLine($"The tich hinh cau ban kinh {r}: {Tt}");
+            Console.Write("Nhap vao ky tu: ");
+            char c = char.Parse(Console.ReadLine());
+            int num = c;
+            Console.WriteLine($"{c} in ASCII = {num}");
         }
         /// <summary>
-        /// 5. Write a C# Sharp program that takes a character as input and checks if it is a vowel, a digit, or any other symbol.
+        /// 8. Write programs to Calculate Area of Circle
         /// </summary>
-        public static void Bai4_Ex05()
+        public static void Bai2_Ex08()
         {
-            Console.Write("Nhap mot ky tu: ");
-            char kytu = Console.ReadKey().KeyChar;
-            Console.WriteLine();
-            if ("AEIOUaeiou".IndexOf(kytu) >= 0)
-            {
-                Console.WriteLine($"{kytu} la mot nguyen am.");
-            }
-            else if (char.IsDigit(kytu))
-            {
-                Console.WriteLine($"{kytu} la mot chu so.");
-            }
-            else
-            {
-                Console.WriteLine($"{kytu} la mot ky hieu khac.");
-            }
+            Console.Write("Nhap ban kinh: ");
+            float r = float.Parse(Console.ReadLine());
+            double area = Math.PI * Math.Pow(r, 2);
+            Console.WriteLine($"Dien tich hinh tron ban kinh {r} la: {area}");
+            //Math.Pow(r, 10);// r mu 10
+            //Math.Sqrt(r);// can bac hai
+        }
+        /// <summary>
+        /// 9. Write programs to Calculate Area of Square
+        /// </summary>
+        public static void Bai2_Ex09()
+        {
+            Console.Write("Nhap canh hinh vuong: ");
+            float a = float.Parse(Console.ReadLine());
+            double area = Math.Pow(a, 2);
+            Console.WriteLine($"Dien tich hinh vuong canh {a} la: {area}");
+        }
+        /// <summary>
+        /// 10. Write programs . to convert days to years, weeks and days
+        /// </summary>
+        public static void Bai2_Ex10()
+        {
+            Console.Write("Nhap so ngay: ");
+            int ngay = int.Parse(Console.ReadLine());
+            int nam = ngay / 365;
+            Console.WriteLine($"So nam la: {nam}");
+            int tuan = (ngay - nam * 365) / 7;
+            Console.WriteLine($"So tuan la: {tuan}");
+            int ngayle = (ngay - nam * 365) % 7;
+            Console.WriteLine($"So ngay le: {ngayle}");
         }
     }
 }

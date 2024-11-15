@@ -8,139 +8,180 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
 {
     internal class Session_05
     {
-        static void Main(string[] args)
-        {
-            //ArrayEx_01();
-            AlgorithmsEx_01();
-        }
+        //static void Main (string[] args)
+        //{
+        //    //Bai 1
+        //    int m = maxOfThreeNumber(2, 3, 4);
+        //    Console.WriteLine(m);
+        //    Factorial(6);//Bai 2
+        //    IsPrime(3);//Bai 3
+        //    printPrimeNumberUnderN(10);//Bai 4.1
+        //    printFirstNprime(10);//Bai4.2
+        //    printAllPerfectNumberLessThan(1000); //Bai 5
+        //    isPangram("The quick brown fox jumps over the lazy dog"); //Bai 6
+        //    Console.ReadKey();
+        //}
         /// <summary>
-        /// 1. Declare an array N items. With N is entered from users. <br/>
-        /// 1.1 Enter item values for this array. <br/>
-        /// 1.2 Print the array to screen. <br/>
-        /// 1.3 Write a function that increase each iteam of the array by adding it with 2. <br/>
+        /// <summary>
+        /// 1. Write a C# function to find the maximum of three numbers.
         /// </summary>
-        public static void ArrayEx_01()
+        /// </summary>
+        /// <param name="a"></param>
+        /// <param name="b"></param>
+        /// <param name="c"></param>
+        /// <returns></returns>
+        public static int maxOfThreeNumber(int a, int b, int c)
         {
-            //1.1
-            Console.Write("Enter the quantity of items: ");
-            int N=int.Parse(Console.ReadLine());
-            int[] arr = new int[N];
-            for (int i = 0; i < arr.Length; i++)
+            //return Math.Max(Math.Max(a, b), c); //Cach khac
+            int max = 0;
+            if (a > b && a > c)
             {
-                Console.Write("Enter a number: ");
-                bool res = int.TryParse(Console.ReadLine(), out arr[i]);
-                if (!res)
-                {
-                    Console.WriteLine("Please enter a number!");
-                    i--;
-                }
+                max = a;
             }
-            //1.2
-            Console.WriteLine("Array: ");
-            foreach (int item in arr)
+            else if (b > a && b > c)
             {
-                Console.Write($"{item} ");
-            }
-            //1.3
-            Console.WriteLine();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                arr[i] = arr[i]+ 2;
-            }
-            Console.WriteLine("New Array: ");
-            foreach (int item in arr)
-            {
-                Console.Write($"{item} ");
-            }
-        }
-        static void AlgorithmsEx_01()
-        {
-            Console.Write("Nhap so phan tu cua mang: ");
-            int n = int.Parse(Console.ReadLine());
-            int[] a = new int[n];
-            //Nhap(a);
-            generateRandomArray(a);//ham nhap gia tri phan tu bang cach random
-            Array.Sort(a); // Sap xep tang dan gia tri phan tu mang
-            InMang(a); Console.WriteLine();//ham in gia tri cua tung phan tu
-
-            Console.Write("Nhap so can tim kiem: ");
-            int soCanTim = int.Parse(Console.ReadLine());
-            //int pos = timkiem_linear(a, soCanTim);
-            int pos = BinarySearchInterative(a, soCanTim);
-
-            if (pos == -1)
-            {
-                Console.WriteLine($"So {soCanTim} khong co trong mang.");
+                max = b;
             }
             else
             {
-                Console.WriteLine($"So {soCanTim} xuat hien tai vi tri {pos}.");
+                max = c;
+            }
+            return max;
+        }
+        /// <summary>
+        /// 2. Write a C# function to calculate the factorial of a number (a non-negative integer). The function accepts the number as an argument.
+        /// </summary>
+        /// <param name="n"></param>
+        /// <param name="result"></param>
+        /// <returns></returns>
+        static void Factorial(int n)
+        {
+            int result = 1;
+            if (n < 0)
+            {
+                Console.WriteLine("So phai la mot so nguyen khong am.");
+                result = 0;
+            }
+            for (int i = 1; i <= n; i++)
+            {
+                result *= i;
+            }
+            Console.WriteLine($"Giai thua cua {n} la: {result} ");
+        }
+        /// <summary>
+        /// 3. Write a C# function that takes a number as a parameter and checks whether the number is prime or not.
+        /// </summary>
+        /// <param name="number"></param>
+        static void IsPrime(int number)
+        {
+            if (number < 2)
+            {
+                Console.WriteLine($"{number} khong phai la so nguyen to");
+            }
+            else
+            {
+                for (int i = 2; i <= (int)Math.Sqrt(number); i++)
+                {
+                    if (number % i == 0)
+                    {
+                        Console.WriteLine($"{number} khong phai so nguyen to");
+                    }
+                }
+                Console.WriteLine($"{number} la so nguyen to");
             }
         }
-        static void Nhap(int[] a) //Nguoi dung nhap gia tri mang
+
+        /// <summary>
+        /// 4. Write a C# function to print 
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        static bool isPrime(int number)
         {
-            for (int i = 0; i < a.Length; i++)
+            if (number < 2) return false;
+            for (int i = 2; i < number / 2; i++)
             {
-                Console.Write($"Nhap phan tu thu {i}: ");
-                int v = int.Parse(Console.ReadLine());
-                a[i] = v;
+                if (number % i == 0) return false;
             }
+            return true;
         }
-        static void generateRandomArray(int[] a) 
+        /// <summary>
+        /// 1. all prime numbers that less than a number(enter prompt keyboard).
+        /// </summary>
+        /// <param name="n"></param>
+        static void printPrimeNumberUnderN(int n)
         {
-            Random rnd = new Random();
-            for (int i = 0; i < a.Length; i++)
-            {
-                a[i] = rnd.Next(0, 100);
-            }
+            for (int i = 2; i <= n; i++)
+                if (isPrime(i))
+                    Console.Write(i + " ");
         }
-        static void InMang(int[] a)
+        /// <summary>
+        /// 2. the first N prime numbers
+        /// </summary>
+        /// <param name="n"></param>
+        static void printFirstNprime(int n)
         {
-            foreach (int i in a)
+            int so = 2;
+            int dem = 0;
+            while (dem < n)
             {
-                Console.Write($"{i}, ");
+                if (isPrime(so))
+                {
+                    Console.Write(so + " ");
+                    dem++;
+                }
+                so++;
             }
         }
         /// <summary>
-        /// Tim 1 so co trong mang hay khong
+        /// 5. Write a C# function to check whether a number is "Prefect" or not.
         /// </summary>
-        /// <param name="a">la mang so nguyen</param>
-        /// <param name="soCanTim">la so can tim trong mang</param>
-        /// <returns></returns Tra ve: <li-1 neu khong tim thay.
-        /// <li>vi tri xuat hien neu tim thay</li>
-        /// </returns>
-        static int timkiem_linear(int[] a, int soCanTim) //ham tim kiem vi tri cua so can tim
+        /// <param name="number"></param>
+        /// <returns></returns>
+        static bool isPerfect(int number)
         {
-            for (int i = 0; i < a.Length; i++)
+            if (number < 2) return false;
+            int sumOfDivisors = 0;
+            for (int i = 1; i <= number / 2; i++)
             {
-                if (a[i] == soCanTim)
+                if (number % i == 0)
                 {
-                    return i;
+                    sumOfDivisors += i;
                 }
             }
-            return -1;
+            return sumOfDivisors == number;
         }
-        static int BinarySearchInterative(int[] a, int soCanTim)
+        /// <summary>
+        /// Then print all perfect number that less than 1000
+        /// </summary>
+        /// <param name="n"></param>
+        static void printAllPerfectNumberLessThan(int limit)
         {
-            int min = 0;
-            int max = a.Length - 1;
-            while (min <= max)
+            Console.WriteLine("Cac so hoan hao nho hon 1000: ");
+            for (int i = 1; i < limit; i++)
             {
-                int mid = (min + max) / 2;
-                if (soCanTim == a[mid])
+                if (isPerfect(i))
                 {
-                    return ++mid;
-                }
-                else if (soCanTim < a[mid])
-                {
-                    max = mid - 1;
-                }
-                else
-                {
-                    min = mid + 1;
+                    Console.Write(i + " ");
                 }
             }
-            return -1;
+        }
+        /// <summary>
+        /// 6. Write a C# function to check whether a string is a pangram or not.
+        /// </summary>
+        /// <param name="intput"></param>
+        static void isPangram(string input)
+        {
+            input = input.ToLower();//Doi ve chu thuong
+
+            for (char c = 'a'; c <= 'z'; c++)
+            {
+                if (!input.Contains(c))
+                {
+                    Console.WriteLine($"Chuoi '{input}' khong phai la mot pangram.");
+                }
+            }
+            Console.WriteLine($"Chuoi '{input}' la mot pangranm.");
         }
     }
 }
