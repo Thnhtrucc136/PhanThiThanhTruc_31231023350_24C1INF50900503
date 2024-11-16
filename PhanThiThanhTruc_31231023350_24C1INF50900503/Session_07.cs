@@ -277,6 +277,92 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
                 Console.WriteLine(); 
             }
         }
+        static int MaxArray(int[][] a)
+        {
+            int max = a[0][0];
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a[i].Length; j++)
+                {
+                    if (a[i] [j] > max)
+                    {
+                        max = a[i][j];
+                    }
+                }
+            }
+            return max;
+        }
+        static int MaxofRows(int[][] a)
+        {
+            int max = a[0][0];
+            foreach (int[] line in a)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    for (int j = 0; j < a[i].Length; j++)
+                    {
+                        if (a[i][j] > max)
+                        {
+                            max = a[i][j];
+                            Console.WriteLine($"Gia tri lon nhat hang {i} la: {max}");
+                        }
+                    }
+                }
+            }
+            return max;
+        }
+        static void Prime(int[][]a)
+        {
+            bool foundPrime = false;
+            for (int i = 0; i < a.Length; i++)
+            {
+                for (int j = 0; j < a[i].Length; j++)
+                {
+                    if (a[i][j] <= 1)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        bool isPrime = true;
+                        for (int k = 2; k <= (int)Math.Sqrt(a[i][j]); k++)
+                        {
+                            if (a[i][j] % k == 0)
+                            {
+                                isPrime = false;
+                                break;
+                            }
+                        }
+                        if (isPrime)
+                        {
+                            Console.Write(a[i][j] + "\t");
+                            foundPrime = true;
+                        }
+                    }
+                }
+            }
+            if (!foundPrime)
+            {
+                Console.WriteLine("Khong co so nguyen to nao trong mang");
+            }
+        }
+        static void SearchLinerArray(int[][] a, int value)
+        {
+            foreach (int[] line in a)
+            {
+                for (int i = 0; i < a.Length; i++)
+                {
+                    for (int j = 0; j < a[i].Length; j++)
+                    {
+                        if (a[i][j] == value)
+                        {
+                            Console.WriteLine($"{value} xuat hien tai dong {i} cot {j}\n");
+                            return;
+                        }
+                    }
+                }
+            }
+        }
         public static void BapTap_Manglomchom()
         {
             int[][] a;
@@ -286,14 +372,32 @@ namespace PhanThiThanhTruc_31231023350_24C1INF50900503
             Inmang(a);
             Console.WriteLine();
 
+            //Bai 1
+            int[][] b = KhoiTaoMang();
+            InMangTay(b);
+
+            //Bai 2
+            //2.1
+            MaxofRows(a);
+            Console.WriteLine();
+
+            int maxArray = MaxArray(a);
+            Console.WriteLine($"Gia tri phan tu lon nhat trong mang la: {maxArray}");
+
+            //2.2
             Console.WriteLine("Mang sau khi sort: ");
             SortArray(a);
             Console.WriteLine();
             Inmang(a);
 
-            //Bai 1
-            //int[][] b = KhoiTaoMang();
-            //InMangTay(b);
+            //2.3
+            Console.WriteLine("So nguyen to trong mang la: ");
+            Prime(a);
+            Console.WriteLine();
+
+            //2.4
+            Console.Write("Nhap so can tim: "); int value = int.Parse(Console.ReadLine());
+            SearchLinerArray(a, value);
         }
         private static void Main(string[] args)
         {
